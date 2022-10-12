@@ -35,9 +35,10 @@ app_ui <- function(request) {
         id = "main_sidebar", 
         selected = "Info",
         tabPanel("Info"),
+        tabPanel("Data explorer", mod_explorer_tab_ui(id = "data_explorer")),
         tabPanel("PTI", mod_weights_ui("new_pti_core", full_ui = full_ui)),
         tabPanel("PTI comparison", mod_map_pti_leaf_page_ui("compare_leaf_map")),
-        tabPanel("Data explorer", mod_explorer_tab_ui(id = "data_explorer"))#,
+        
         # tabPanel("How it works?")
       )
     )
@@ -94,9 +95,9 @@ app_server_sample_pti_vis_ui <- function(request) {
         collapsible = TRUE,
         id = "main_sidebar",
         tabPanel("Info"),
+        tabPanel("Data explorer", mod_dta_explorer2_ui(id = "explorer_page_leaf")),
         tabPanel("PTI", mod_weights_ui("new_pti_core", full_ui = full_ui)),
         tabPanel("PTI comparison", mod_map_pti_leaf_page_ui("compare_leaf_map")),
-        tabPanel("Data explorer", mod_dta_explorer2_ui(id = "explorer_page_leaf")),
         tabPanel("How it works?")
       )
     )
@@ -149,9 +150,9 @@ app_new_pti_ui <- function(request) {
         collapsible = TRUE,
         id = "main_sidebar",
         tabPanel("Info"),
+        tabPanel("Data explorer", mod_dta_explorer2_ui(id = "explorer_page_leaf", height = "calc(100vh - 60px)")),
         tabPanel("PTI", mod_weights_ui("new_pti_core", full_ui = full_ui)),
-        tabPanel("PTI comparison", mod_map_pti_leaf_page_ui("compare_leaf_map")),
-        tabPanel("Data explorer", mod_dta_explorer2_ui(id = "explorer_page_leaf", height = "calc(100vh - 60px)"))
+        tabPanel("PTI comparison", mod_map_pti_leaf_page_ui("compare_leaf_map"))
         # ,
         # tabPanel("How it works?")
       )

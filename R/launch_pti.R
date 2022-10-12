@@ -140,6 +140,11 @@ launch_pti <-
         id = "tabpan",
         selected = selected_tab,
         if ("info" %in% tabs) tabPanel("Info", ""),
+        if ("explorer" %in% tabs) tabPanel("Data explorer",
+                 mod_dta_explorer2_ui("explorer_page", 
+                                      multi_choice = FALSE, 
+                                      height = "calc(100vh - 60px)")
+        ),
         tabPanel("PTI",
                  use_cicerone(),
                  ui_fn("pagepti",
@@ -151,12 +156,7 @@ launch_pti <-
                    fluidRow()
         ),
         if ("compare" %in% tabs) tabPanel("PTI comparison", 
-                 mod_pti_comparepage_ui("page_comparepti")
-        ),
-        if ("explorer" %in% tabs) tabPanel("Data explorer",
-                 mod_dta_explorer2_ui("explorer_page", 
-                                      multi_choice = FALSE, 
-                                      height = "calc(100vh - 60px)")
+                                          mod_pti_comparepage_ui("page_comparepti")
         ),
         if ("how" %in% tabs) tabPanel("How it works?")
       ) %>% 
@@ -174,7 +174,7 @@ launch_pti <-
       mod_infotab_server(NULL, 
                          tabpan_id = "tabpan", 
                          infotab_id = "Info", 
-                         firsttab_id = "PTI", 
+                         firsttab_id = "Data explorer", 
                          ptitab_id = "PTI", 
                          comparetab_id = "PTI comparison", 
                          exploretab_id = "Data explorer")

@@ -308,35 +308,7 @@ compile_guides <- function(tabpan_id = "main_sidebar") {
       show_btns = TRUE
     )
   
-  
-  out_cice <- 
-    out_cice$step(
-      el = str_c("#", tabpan_id, " li:nth-child(4)"), 
-      is_id = FALSE,
-      title = "Explore actual data behind PTI",
-      description =
-        htmltools::HTML(
-          glue("On the explorer tab, one can visualise data that is used for construction PTIs.<br/> 
-               It is also possible to show locations of different projects.")
-        ),
-      position = "bottom-left",
-      show_btns = TRUE
-    )$step(
-      el = "explorer_1", 
-      is_id = TRUE,
-      title = "Explore data",
-      description =
-        tags$image(src = "www/035-explorer.gif", class = "popoverimg")%>%
-        as.character() %>%
-        htmltools::HTML(),
-      position = "mid-center",
-      show_btns = TRUE,
-      on_highlight_started = str_c(
-        'function() {
-        $("#', tabpan_id, ' a[data-value=\'Data explorer\']").tab(\'show\');
-      }')
-    )
-  
+
   out_cice
   
 
